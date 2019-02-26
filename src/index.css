@@ -21,7 +21,7 @@ ul, li {
 input {
   padding: 10px;
   border-radius: 5px;
-  /* outline: none; */
+  outline: none;
   margin-right: 10px;
   border: 1px solid #ddd;
 }
@@ -39,6 +39,6 @@ button:hover {
   color: #222;
 }
 
-/* *:focus {
+*:focus {
   outline: none;
-} */
+}
