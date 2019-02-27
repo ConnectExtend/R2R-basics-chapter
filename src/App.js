@@ -51,12 +51,9 @@ class App extends Component {
     return (
       <div className="App">
         <div className="interactions">
-          <Search
-            value={searchTerm}
-            onChange={this.onSearchChange}
-          >
+          <Search value={searchTerm} onChange={this.onSearchChange}>
             Search:
-        </Search>
+          </Search>
         </div>
         <Table
           list={list}
@@ -68,33 +65,25 @@ class App extends Component {
   }
 }
 
-const Search = ({ value, onChange, children }) =>
+const Search = ({ value, onChange, children }) => (
   <form>
     <label>
-      {children} <input
-        type='text'
-        value={value}
-        onChange={onChange}
-      />
+      {children}
+      <input type="text" value={value} onChange={onChange} />
     </label>
   </form>
+);
 
-const Table = ({ list, pattern, onDismiss }) =>
+const Table = ({ list, pattern, onDismiss }) => (
   <div className="table">
-    {list.filter(isSearched(pattern)).map(item =>
+    {list.filter(isSearched(pattern)).map(item => (
       <div key={item.objectID} className="table-row">
         <span style={{ width: '40%' }}>
           <a href={item.url}>{item.title}</a>
         </span>
-        <span style={{ width: '30%' }}>
-          {item.author}
-        </span>
-        <span style={{ width: '10%' }}>
-          {item.num_comments}
-        </span>
-        <span style={{ width: '10%' }}>
-          {item.points}
-        </span>
+        <span style={{ width: '30%' }}>{item.author}</span>
+        <span style={{ width: '10%' }}>{item.num_comments}</span>
+        <span style={{ width: '10%' }}>{item.points}</span>
         <span style={{ width: '10%' }}>
           <Button
             onClick={() => onDismiss(item.objectID)}
@@ -104,16 +93,14 @@ const Table = ({ list, pattern, onDismiss }) =>
           </Button>
         </span>
       </div>
-    )}
+    ))}
   </div>
+);
 
-const Button = ({ onClick, className = '', children }) =>
-  <button
-    onClick={onClick}
-    className={className}
-    type='button'
-  >
+const Button = ({ onClick, className = '', children }) => (
+  <button onClick={onClick} className={className} type="button">
     {children}
   </button>
+);
 
 export default App;
